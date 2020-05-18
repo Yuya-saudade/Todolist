@@ -1,0 +1,78 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+//reset
+html, body,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6, p, div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN W3', sans-serif;
+  position: relative;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+//ここからMy Cord
+header {
+  background-color: rgb(40, 40, 40);
+  width: 100%;
+  color: rgb(184, 184, 184);
+  float: left;
+  .logo {
+    font-size: 46px;
+    float: left;
+    line-height:95px;
+    padding-right: 35px;
+    padding-left: 35px;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+    &:hover {
+      color: #fff;
+    }
+  }
+  p {
+    font-size: 30px;
+    float: left;
+    line-height: 95px;
+    padding-right: 20px;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+footer{
+  background-color: rgb(40, 40, 40);
+  width: 100%;
+  line-height: 60px;
+  font-size: 20px;
+  text-align: center;
+  margin: 50px 0 0 0;
+  margin: 0;
+  color: rgb(184, 184, 184);
+  position: absolute;
+  bottom: 0;
+  cursor: default;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todoist</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">Todoist</div>
+      <div class="menu">
+        <p>list</p>
+        <p>login</p>
+      </div>
+    </header>
+    <main>
+    </main>
+    <footer>
+      <p>©Yuya-Saudade-Bonfire</p>
+    </footer>
+    <%= yield%>
+  </body>
+</html>
