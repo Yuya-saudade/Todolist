@@ -33,6 +33,7 @@ header {
   width: 100%;
   color: rgb(184, 184, 184);
   float: left;
+  text-decoration: none;
   .logo {
     font-size: 46px;
     float: left;
@@ -40,6 +41,7 @@ header {
     padding-right: 35px;
     padding-left: 35px;
     text-decoration: none;
+    color: rgb(184, 184, 184);
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -48,12 +50,13 @@ header {
       color: #fff;
     }
   }
-  p {
+  a {
     font-size: 30px;
     float: left;
     line-height: 95px;
     padding-right: 20px;
     text-decoration: none;
+    color: rgb(184, 184, 184);
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
