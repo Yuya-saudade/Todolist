@@ -39,11 +39,65 @@
   overflow: hidden;
 }
 
+.checkbox {
+  display: none;
+}
+
+.task-new .hidden_show {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.task-new label {
+  display: inline-block;
+  width: 100%;
+}
+
+.task-new input:checked ~ .hidden_show {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+}
+
+.task-input {
+  background-color: rgb(29, 29, 29);
+  color: #fff;
+  border: 1.5px solid rgb(167, 163, 163);
+  width: 500px;
+  height: 30px;
+  font-size: 16px;
+  padding-left: 10px;
+  outline: 0;
+}
+
+.add-btn {
+  width: 80px;
+  height: 30px;
+  margin-top: 10px;
+  background-color: red;
+  outline: 0;
+  border-style: none;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
 .tasks-index-item {
   padding: 20px 30px;
-  background-color: white;
+  margin: 0 auto;
+  color: #fff;
+  width: 90%;
+  text-decoration: none;
+  background-color: rgb(40, 40, 40);
   overflow: hidden;
-  box-shadow: 0 2px 6px #c1ced7;
+  border-bottom: 1px solid rgb(167, 163, 163);
+  .content {
+    text-decoration: none;
+    color: #fff;
+  }
 }
 
 .post-left {
@@ -64,25 +118,14 @@
 }
 
 .tasks-show-item {
+  background-color: rgb(40, 40, 40);
+  color: #fff;
   padding: 30px;
-  background-color: white;
-  box-shadow: 0 2px 6px #c1ced7;
   overflow: hidden;
-}
-
-.tasks-show-item img {
-  width: 60px;
-  height: 60px;
-  border-radius: 40%;
-  box-shadow: 0 2px 6px #c1ced7;
-  vertical-align: middle;
-  object-fit: cover;
-}
-
-.tasks-show-item .post-user-name a {
-  vertical-align: middle;
-  font-size: 24px;
-  margin-left: 15px;
+  margin-top: 20px;
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
 }
 
 .tasks-show-item p {
