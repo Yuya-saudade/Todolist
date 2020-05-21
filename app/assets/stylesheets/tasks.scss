@@ -113,11 +113,11 @@
 }
 
 /* posts/show ================================ */
-.task-show form {
+#task-show form {
   display: inline;
 }
 
-.tasks-show-item {
+#tasks-show-item {
   background-color: rgb(40, 40, 40);
   color: #fff;
   padding: 30px;
@@ -128,21 +128,21 @@
   margin: 0 auto;
 }
 
-.tasks-show-item p {
+#tasks-show-item p {
   font-size: 24px;
   margin: 20px 0;
 }
 
-.post-time {
+#post-time {
   color: #8899a6;
   margin-bottom: 10px;
 }
 
-.post-menus {
+#post-menus {
   float: right;
 }
 
-.post-menus a, .post-menus input {
+#post-menus a, .post-menus input {
   color: #8899a6;
   text-decoration: underline;
   font-size: 14px;

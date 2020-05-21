@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get "tasks/index" => "tasks#index"
-  get "tasks/:id" => "tasks#show"
   post "tasks/create" => "tasks#create"
 
   get "/" => "home#top"
