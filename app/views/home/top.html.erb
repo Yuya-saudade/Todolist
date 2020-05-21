@@ -4,7 +4,16 @@
     <meta charset="utf-8">
     <title>Top || Todolist</title>
   </head>
+
   <body>
-    <h1>Todoistを使って、身の回りのタスクを整理しましょう！</h1>
+    <header>
+      <%= link_to("Todolist", "/", class:"logo") %>
+      <div class="menu">
+        <%= link_to("タスク一覧", "/tasks/index") %>
+      </div>
+    </header>
+    <main>
+      Todoistを使って、身の回りのタスクを整理しましょう！
+    </main>
   </body>
 </html>
