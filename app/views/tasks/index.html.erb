@@ -9,31 +9,28 @@
         すべてのタスク
       </div>
       <% @tasks.each do |task| %>
-        <div class="tasks-index-item">
-          <ul class="far-ul">
-            <li class="far-li">
-              <i class="far fa-circle"></i>  <%= link_to(task.content, "/tasks/#{task.id}", class: "content") %>
-            </li>
-          </ul>
-        </div>
-        <div id="container">
-          <div id="tasks-show-item">
-            <div class="tasks-index-item">
-              <ul class="far-ul">
-                <li class="far-li">
-                  <i class="far fa-circle"></i>  <%= task.content %>
-                  <p><%= task.created_at %></p>
-                </li>
-              </ul>
-            </div>
+        <div class="tasks-index">
+          <div class="tasks-index-item">
+            <ul class="far-ul">
+              <li class="far-li">
+                <i class="far fa-circle circle"></i>
+                <i class="fas fa-check check"></i>
+                <%= task.content %>
+                <div class="task-show">
+                  <div class="hidden_show1">
+                    <p>追加日：<%= task.created_at.to_s(:datetime_jp) %></p>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       <% end %>
 
       <div class="task-new">
-        <label for="label1"><i class="fas fa-plus fa-fw plus-in-index"></i> タスクを追加</label>
-        <input type="checkbox" id="label1" class="checkbox">
-        <div class="hidden_show">
+        <label for="label4"><i class="fas fa-plus fa-fw plus-in-index"></i> タスクを追加</label>
+        <input type="checkbox" id="label4" class="checkbox">
+        <div class="hidden_show2">
           <%= form_tag("/tasks/create") do %>
             <input required maxlength='100' name="content" class="task-input">
             <p><input type="submit" value="追加" class="add-btn"></p>
