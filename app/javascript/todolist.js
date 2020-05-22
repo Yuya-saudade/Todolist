@@ -16,5 +16,9 @@ $(function() {
     }
   );
 
-  
+  $("#edit-input").hide();
+
+  $("#edit").click(function (){
+    
+  });
 });

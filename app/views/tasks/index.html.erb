@@ -24,9 +24,10 @@
                 <% if task.memo != nil %>
                   <p>メモ：<%= task.memo %></p>
                 <% end %>
-                <p>
-                  <p><input type="submit" value="編集" class="edit"></p>
-                </p>
+                <p><input type="submit" value="編集" id="edit"></p>
+              </div>
+              <div id="editer">
+                <input type="text" name="content" value="<%= task.content %>" id="edit-input">
               </div>
             </div>
           </div>
