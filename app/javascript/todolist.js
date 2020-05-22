@@ -15,4 +15,6 @@ $(function() {
       $(this).next("i").hide();
     }
   );
+
+  
 });
