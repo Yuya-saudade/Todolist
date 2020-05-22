@@ -19,6 +19,6 @@ $(function() {
   $("#edit-input").hide();
 
   $("#edit").click(function (){
-    
+    $("#edit-input").show();
   });
 });
