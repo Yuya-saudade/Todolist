@@ -3,6 +3,9 @@
 </head>
 
 <main>
+  <div class="header">
+    <i class="fas fa-plus fa-fw plus-in-header"></i>
+  </div>
   <div class="main tasks-index">
     <div class="container">
       <div class="index-head" >
@@ -11,18 +14,15 @@
       <% @tasks.each do |task| %>
         <div class="tasks-index">
           <div class="tasks-index-item">
-            <ul class="far-ul">
-              <li class="far-li">
-                <i class="far fa-circle circle"></i>
-                <i class="fas fa-check check"></i>
-                <%= task.content %>
-                <div class="task-show">
-                  <div class="hidden_show1">
-                    <p>追加日：<%= task.created_at.to_s(:datetime_jp) %></p>
-                  </div>
-                </div>
-              </li>
-            </ul>
+            <i class="far fa-circle circle"></i>
+            <i class="fas fa-check check"></i>
+            <nobr><%= task.content %></nobr>
+            <div id="task-show">
+              <div id="hidden_show1">
+                <p>追加日：<%= task.created_at.to_s(:datetime_jp) %></p>
+                <p>メモ：<%= task.memo %></p>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>
@@ -32,7 +32,8 @@
         <input type="checkbox" id="label4" class="checkbox">
         <div class="hidden_show2">
           <%= form_tag("/tasks/create") do %>
-            <input required maxlength='100' name="content" class="task-input">
+            <input required maxlength='100' name="content" class="task-input" placeholder="タスクを入力 例：花に水やり ">
+            <p><input maxlength="200" name="memo" class="task-input" placeholder="メモを入力 例：毎日"></p>
             <p><input type="submit" value="追加" class="add-btn"></p>
           <% end %>
         </div>

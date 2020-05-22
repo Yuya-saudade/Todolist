@@ -1,5 +1,18 @@
 $(function() {
+  $("nobr").click(function (){
+    $(this).next("div").slideToggle(300);
+  });
 
-  $("header").css("background-color", "red");
+  $(".fa-check").hide();
 
+  $(".fa-circle").hover(
+    function () {
+      $(this).hide();
+      $(this).next("i").show();
+    },
+    function () {
+      $(this).show();
+      $(this).next("i").hide();
+    }
+  );
 });
