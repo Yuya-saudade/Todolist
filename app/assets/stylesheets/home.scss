@@ -14,9 +14,10 @@ h1, h2, h3, h4, h5, h6, p, div {
 body {
   font-family: 'Hiragino Kaku Gothic ProN W3', sans-serif;
   position: relative;
-  padding-bottom: 120px;
+  padding-bottom: 150px;
   box-sizing: border-box;
   min-height: 100vh;
+  max-width: 100vw;
   background-color: rgb(31, 31, 31);
 }
 
@@ -78,8 +79,7 @@ footer{
   line-height: 60px;
   font-size: 20px;
   text-align: center;
-  margin: 50px 0 0 0;
-  margin: 0;
+  margin-top: 10px;
   color: rgb(184, 184, 184);
   position: absolute;
   bottom: 0;

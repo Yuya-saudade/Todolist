@@ -5,7 +5,6 @@
 <main>
   <div class="header">
     <i class="fas fa-bars fa-2x bar-in-header"></i>
-    <i class="fas fa-plus fa-2x plus-in-header"></i>
   </div>
   <div class="main tasks-index">
     <div class="container">
@@ -14,22 +13,22 @@
       </div>
       <% @tasks.each do |task| %>
         <div class="tasks-index">
-          <div id="new-task-<%= task.id %>">
-            <div class="tasks-index-item">
-              <i class="far fa-circle circle"></i>
-              <i class="fas fa-check check"></i>
-              <nobr><%= task.content %></nobr>
-              <div id="task-show">
-                <div id="hidden_show1">
-                  <p>追加日：<%= task.created_at.to_s(:datetime_jp) %></p>
-                  <% if task.memo != nil %>
-                    <p>メモ：<%= task.memo %></p>
-                  <% end %>
-                  <p><input type="submit" value="編集" id="edit"></p>
-                </div>
-                <div id="editer">
-                  <input type="text" name="content" value="<%= task.content %>" id="edit-input">
-                </div>
+          <div class="tasks-index-item">
+            <i class="far fa-circle circle"></i>
+            <i class="fas fa-check check"></i>
+            <nobr id="content"><%= task.content %></nobr>
+            <div id="task-show">
+              <div id="hidden_show1">
+                <p>追加日：<%= task.created_at.to_s(:datetime_jp) %></p>
+                <% if task.memo != nil %>
+                  <p>メモ：<%= task.memo %></p>
+                <% end %>
+                <ul id="edit-btn">
+                  <i class="fas fa-edit"></i> 編集
+                  <li>
+                    <input type="text" name="content" value="<%= task.content %>" id="edit-input" autocomplete="off">
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -42,14 +41,14 @@
         </div>
       </div>
 
-      <div class="task-new">
-        <label for="label4"><i class="fas fa-plus fa-fw plus-in-index"></i> タスクを追加</label>
-        <input type="checkbox" id="label4" class="checkbox">
+      <div id="task-new">
+        <label for="label4" id="add-task"><i class="fas fa-plus fa-fw plus-in-index"></i> タスクを追加</label>
+        <input type="checkbox" id="label4" class="checkbox-2">
         <div class="hidden_show2">
           <%= form_tag("/tasks/create") do %>
-            <input required maxlength='100' name="content" class="task-input" placeholder="タスクを入力 例：どら焼きを買う ">
-            <p><input maxlength="200" name="memo" class="task-input" placeholder="メモを入力 例：クーポンあり"></p>
-            <p><input type="submit" value="追加" class="add-btn" remote: true></p>
+            <input required maxlength='100' name="content" class="task-input" placeholder="タスクを入力 例：どら焼きを買う"  autocomplete="off">
+            <p><input maxlength="200" name="memo" class="task-input" placeholder="メモを入力 例：クーポンあり" autocomplete="off"></p>
+            <p><input type="submit" value="追加" id="add-btn"></p>
           <% end %>
         </div>
     </div>

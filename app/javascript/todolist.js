@@ -3,9 +3,9 @@ $(function() {
     $(this).next("div").slideToggle(300);
   });
 
-  $(".fa-check").hide();
+  $(".check").hide();
 
-  $(".fa-circle").hover(
+  $(".circle").hover(
     function () {
       $(this).hide();
       $(this).next("i").show();
@@ -16,9 +16,8 @@ $(function() {
     }
   );
 
-  $("#edit-input").hide();
-
-  $("#edit").click(function (){
-    $("#edit-input").show();
+  $("#edit-btn").click(function (){
+    $(this).children("li").slideToggle(300);
+    $("#edit-btn").hide();
   });
 });
