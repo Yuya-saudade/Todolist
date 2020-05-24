@@ -16,9 +16,10 @@ $(function($) {
     }
   );
 
-  $("#edit-input").hide();
+  $(".edit-input").hide();
 
-  $("#edit-btn").click(function (){
-    $("#edit-input").slideToggle(300);
+  $("#edit-btn").click(
+    function (){
+      $("#edit-input").slideToggle(100);
   });
 })(jQuery);

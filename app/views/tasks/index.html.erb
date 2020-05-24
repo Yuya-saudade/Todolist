@@ -27,8 +27,10 @@
                 <% end %>
                 <ul>
                   <li id="editer">
-                    <label id="edit-btn"><i class="fas fa-edit"></i> 編集</label>
-                    <input name="content" value="<%= task.content %>" id="edit-input" autocomplete="off" required maxlength='100'>
+                    <button id="edit-btn" class="edit-btn" type="submit"><i class="fas fa-edit"></i> 編集</button>
+                    <% form_tag("/tasks/#{task.id}/edit") do %>
+                      <input name="content" value="<%= task.content %>" id="edit-input" autocomplete="off" required maxlength='100' class="edit-input">
+                    <% end %>
                   </li>
                 </ul>
               </div>

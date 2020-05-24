@@ -61,13 +61,14 @@
     width: 70px;
     line-height: 20px;
     margin-top: 10px;
-    padding-left: 10px;
+    margin-bottom: 10px;
+    padding: 7px 10px;
     user-select: none;
     background-color: red;
     outline: 0;
     border-style: none;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 50px;
     cursor: pointer;
   }
 
@@ -77,7 +78,6 @@
     border: 1.5px solid rgb(167, 163, 163);
     width: 40vw;
     height: 30px;
-    margin-bottom: 10px;
     margin-left: 10px;
     font-size: 16px;
     padding-left: 10px;
@@ -153,6 +153,7 @@
 #add-btn {
   width: 80px;
   height: 30px;
+  line-height: 30px;
   margin-top: 10px;
   background-color: red;
   outline: 0;
