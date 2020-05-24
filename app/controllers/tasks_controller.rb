@@ -7,6 +7,6 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(content: params[:content],memo: params[:memo])
     @task.save
-    redirect_to("/tasks/index") 
+    redirect_to("/tasks/index")
   end
 end

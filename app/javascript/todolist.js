@@ -1,6 +1,6 @@
-$(function() {
+$(function($) {
   $("nobr").click(function (){
-    $(this).next("div").slideToggle(300);
+    $(this).next("div").slideToggle(250);
   });
 
   $(".check").hide();
@@ -16,8 +16,9 @@ $(function() {
     }
   );
 
+  $("#edit-input").hide();
+
   $("#edit-btn").click(function (){
-    $(this).children("li").slideToggle(300);
-    $("#edit-btn").hide();
+    $("#edit-input").slideToggle(300);
   });
-});
+})(jQuery);

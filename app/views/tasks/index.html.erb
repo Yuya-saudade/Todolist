@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <head>
   <title>タスク一覧 || Todolist</title>
 </head>
@@ -14,19 +15,20 @@
       <% @tasks.each do |task| %>
         <div class="tasks-index">
           <div class="tasks-index-item">
-            <i class="far fa-circle circle"></i>
-            <i class="fas fa-check check"></i>
+            <i class="far fa-circle circle" id="circle"></i>
+            <i class="fas fa-check check" id="check"></i>
             <nobr id="content"><%= task.content %></nobr>
             <div id="task-show">
               <div id="hidden_show1">
                 <p>追加日：<%= task.created_at.to_s(:datetime_jp) %></p>
                 <% if task.memo != nil %>
                   <p>メモ：<%= task.memo %></p>
+                <% else %>
                 <% end %>
-                <ul id="edit-btn">
-                  <i class="fas fa-edit"></i> 編集
-                  <li>
-                    <input type="text" name="content" value="<%= task.content %>" id="edit-input" autocomplete="off">
+                <ul>
+                  <li id="editer">
+                    <label id="edit-btn"><i class="fas fa-edit"></i> 編集</label>
+                    <input name="content" value="<%= task.content %>" id="edit-input" autocomplete="off" required maxlength='100'>
                   </li>
                 </ul>
               </div>
