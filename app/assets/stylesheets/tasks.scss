@@ -6,6 +6,9 @@
 .header {
   background-color: rgb(40, 40, 40);
   width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
   i {
     color: rgb(222, 222, 222);
     line-height: 50px;
@@ -23,6 +26,7 @@
   text-align: center;
   line-height: 7vh;
   color: #fff;
+  margin-top: 50px;
   width: 100%;
   padding: 20px 0 10px 0;
   display: inline-block;
@@ -73,16 +77,30 @@
     cursor: pointer;
   }
 
-  #edit-input {
+  .edit-input {
     background-color: rgb(29, 29, 29);
     color: #fff;
     border: 1.5px solid rgb(167, 163, 163);
     width: 40vw;
     height: 30px;
-    margin-left: 10px;
     font-size: 16px;
     padding-left: 10px;
     outline: 0;
+  }
+
+  .edit-complete {
+    width: 70px;
+    line-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 7px 10px;
+    user-select: none;
+    background-color: red;
+    outline: 0;
+    border-style: none;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
   }
 }
 

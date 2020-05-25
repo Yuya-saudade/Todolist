@@ -36,6 +36,9 @@ header {
   color: rgb(184, 184, 184);
   float: left;
   text-decoration: none;
+  position: fixed;
+  top: 0;
+  z-index: 10;
   .logo {
     font-size: 46px;
     float: left;

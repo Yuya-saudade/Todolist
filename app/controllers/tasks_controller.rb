@@ -5,14 +5,13 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.create(content: params[:content],memo: params[:memo])
-    redirect_to("/tasks/index")
+    @task = Task.create(content: params[:content],memo: params[:memo],project: "inbox")
+    new-task = @task
   end
 
   def edit
-    redirect_to("/tasks/index")
     @task = Task.find_by(id: params[:id])
-    Task.content = params[:content]
-    Task.save
+    @task.content = params[:content]
+    @task.save
   end
 end
