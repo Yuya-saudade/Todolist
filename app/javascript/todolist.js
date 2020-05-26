@@ -16,11 +16,15 @@ $(function($) {
   $(".circle").hover(
     function() {
       $(this).hide();
-      $(this).next("i").show();
+      $(this).next("input").show();
     },
     function() {
       $(this).show();
-      $(this).next("i").hide();
+      $(this).next("input").hide();
     }
   );
+
+  $(".check").click(function() {
+    $(this).parents(".tasks-index-item").fadeOut();
+  });
 })(jquery);

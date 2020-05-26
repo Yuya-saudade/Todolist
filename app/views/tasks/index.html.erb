@@ -10,25 +10,24 @@
   <div class="main-tasks-index">
     <div class="container">
       <div class="index-head" >
-        すべてのタスク
+        未完了のすべてのタスク
       </div>
+
       <% @tasks.each do |task| %>
-        <div class="tasks-index">
+        <% if task.project != "completed" %>
           <div class="tasks-index-item">
             <i class="far fa-circle circle" id="circle"></i>
+            <input type="submit" value="&#xf00c;" class="fas" class="check">
             <i class="fas fa-check check" id="check"></i>
             <nobr id="content"><%= task.content %></nobr>
             <div id="task-show">
               <div id="hidden_show1">
                 <p>追加日：<%= task.created_at.to_s(:datetime_jp) %></p>
                 <p>最終更新日：<%= task.updated_at.to_s(:datetime_jp) %></p>
-                <% if task.memo != nil %>
-                  <p>メモ：<%= task.memo %></p>
-                <% else %>
-                <% end %>
+                <p>メモ：<%= task.memo %></p>
                 <li id="editer">
                   <button id="edit-btn" class="edit-btn"><i class="fas fa-edit"></i> 編集</button>
-                  <%= form_tag("/tasks/#{task.id}/edit", :remote => true) do %>
+                  <%= form_tag("/tasks/#{task.id}/edit") do %>
                     <input name="content" value="<%= task.content %>" id="edit-input" autocomplete="off" required maxlength='100' class="edit-input">
                     <input type="submit" value="完了" class="edit-complete">
                   <% end %>
@@ -36,11 +35,8 @@
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-      <div id="tasks-index">
-
-      </div>
 
       <div class="manu">
         <div class="">
@@ -52,9 +48,9 @@
         <label for="label4" id="add-task"><i class="fas fa-plus fa-fw plus-in-index"></i> タスクを追加</label>
         <input type="checkbox" id="label4" class="checkbox-2">
         <div class="hidden_show2">
-          <%= form_tag("/tasks/create", :remote => true) do %>
+          <%= form_tag("/tasks/create") do %>
             <input required maxlength='100' name="content" class="task-input" placeholder="タスクを入力 例：どら焼きを買う"  autocomplete="off">
-            <p><input maxlength="200" name="memo" class="task-input" placeholder="メモを入力 例：クーポンあり" autocomplete="off"></p>
+            <p><input maxlength="200" name="memo" class="task-input" id="memo-input" placeholder="メモを入力 例：クーポンあり" autocomplete="off"></p>
             <p><input type="submit" value="追加" id="add-btn"></p>
           <% end %>
         </div>
