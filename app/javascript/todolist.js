@@ -1,11 +1,13 @@
 $(function($) {
   $("#login").click(function() {
-    $("#login-wrapper").fadeIn();
-    $("#new-wrapper").hide();
+    $("#login-wrapper").fadeIn(200);
   });
   $(".signup").click(function () {
-    $("#new-wrapper").fadeIn();
-    $("#login-wrapper").hide();
+    $("#new-wrapper").fadeIn(200);
+  });
+  $(".close-modal").click(function () {
+    $("#new-wrapper").fadeOut(200);
+    $("#login-wrapper").fadeOut(200);
   });
 
 
@@ -37,4 +39,14 @@ $(function($) {
   $(".check").click(function() {
     $(this).parents(".tasks-index-item").slideUp(200);
   });
+  $(".circle").click(function() {
+    $(this).parents(".tasks-index-item").slideUp(200);
+  });
+
+  $(document).ready(function () {
+    setTimeout(function () {
+      $(".flash").fadeOut();
+    },5000);
+  });
+
 })(jquery);

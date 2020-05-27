@@ -13,10 +13,12 @@
   </head>
 
   <body>
-    <footer>
-      <p>©Yuya-Saudade-Bonfire</p>
-    </footer>
     <script src="todolist.js"></script>
+    <% if flash[:notice] %>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

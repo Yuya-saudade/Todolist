@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get "users/:name/edit" => "users#edit"
+  post "users/signup" => "users#signup"
   post "tasks/:id/completed" => "tasks#completed"
-  get "tasks/:name/index" => "tasks#index"
+  get "tasks/index" => "tasks#index"
   post "tasks/create" => "tasks#create"
   post "tasks/:id/edit" => "tasks#edit"
 

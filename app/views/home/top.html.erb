@@ -13,25 +13,29 @@
         <a class="signup"><i class="fas fa-user-plus fa-fw"></i> 新規登録</a>
       </div>
     </header>
-    <div id="new-wrapper">
-      <div class="modal">
-        <p class="modal-head">新規登録</p>
-        <p>ユーザー名</p>
-        <input type="text" name="name" maxlength="30" required>
-        <p>メールアドレス</p>
-        <input type="email" name="email" required>
-        <p>パスワード</p>
-        <input type="password" name="password" required minlength="10" maxlength="30">
-        <p><input type="submit" value="新規登録" class="modal-submit"></p>
+    <%= form_tag("/users/signup") do %>
+      <div id="new-wrapper">
+        <div class="modal">
+          <i class="fas fa-times close-modal fa-lg"></i>
+          <p class="modal-head">新規登録</p>
+          <p>ユーザー名</p>
+          <input type="text" name="name" maxlength="30" required class="modal-input">
+          <p>メールアドレス</p>
+          <input type="email" name="email" required class="modal-input">
+          <p>パスワード</p>
+          <input type="password" name="password" required minlength="10" maxlength="30" class="modal-input">
+          <p><input type="submit" value="新規登録" class="modal-submit"></p>
+        </div>
       </div>
-    </div>
+    <% end %>
     <div id="login-wrapper">
       <div class="modal">
+        <i class="fas fa-times close-modal fa-lg"></i>
         <p class="modal-head">ログイン</p>
         <p>メールアドレス</p>
-        <input type="email" name="email" required>
+        <input type="email" name="email" required class="modal-input">
         <p>パスワード</p>
-        <input type="password" name="password" required minlength="10" maxlength="30">
+        <input type="password" name="password" required minlength="10" maxlength="30" class="modal-input">
         <p><input type="submit" value="ログイン" class="modal-submit"></p>
       </div>
     </div>
@@ -39,9 +43,13 @@
       <h1 id="top">身の回りのタスクを</h1>
       <h1>Todolistを使って</h1>
       <h1>整理する</h1>
+      <input type="button" class="signup" value="今すぐ始める" class="start-btn">
       <img src="assets/image.png">
       <img src="assets/image2.png">
-      <a class="signup" >今すぐ始める</a>
+      <input type="button" class="signup" value="今すぐ始める" class="start-btn">
     </main>
+    <footer>
+      <p>©Yuya-Saudade-Bonfire</p>
+    </footer>
   </body>
 </html>
