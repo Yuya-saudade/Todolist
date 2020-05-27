@@ -8,12 +8,40 @@
   <body>
     <header>
       <%= link_to("Todolist", "/", class:"logo") %>
-      <div class="menu">
-        <%= link_to("タスク一覧", "/tasks/index") %>
+      <div class="user-menu">
+        <a id="login"><i class="fas fa-sign-in-alt fa-fw"></i> ログイン</a>
+        <a class="signup"><i class="fas fa-user-plus fa-fw"></i> 新規登録</a>
       </div>
     </header>
+    <div id="new-wrapper">
+      <div class="modal">
+        <p class="modal-head">新規登録</p>
+        <p>ユーザー名</p>
+        <input type="text" name="name" maxlength="30" required>
+        <p>メールアドレス</p>
+        <input type="email" name="email" required>
+        <p>パスワード</p>
+        <input type="password" name="password" required minlength="10" maxlength="30">
+        <p><input type="submit" value="新規登録" class="modal-submit"></p>
+      </div>
+    </div>
+    <div id="login-wrapper">
+      <div class="modal">
+        <p class="modal-head">ログイン</p>
+        <p>メールアドレス</p>
+        <input type="email" name="email" required>
+        <p>パスワード</p>
+        <input type="password" name="password" required minlength="10" maxlength="30">
+        <p><input type="submit" value="ログイン" class="modal-submit"></p>
+      </div>
+    </div>
     <main>
-      <h1>Todolistを使って、身の回りのタスクを整理しましょう！</h1>
+      <h1 id="top">身の回りのタスクを</h1>
+      <h1>Todolistを使って</h1>
+      <h1>整理する</h1>
+      <img src="assets/image.png">
+      <img src="assets/image2.png">
+      <a class="signup" >今すぐ始める</a>
     </main>
   </body>
 </html>

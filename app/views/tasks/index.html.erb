@@ -5,7 +5,7 @@
 
 <main>
   <div class="header">
-    <i class="fas fa-bars fa-2x bar-in-header"></i>
+    <i class="fas fa-bars bar-in-header"></i>
   </div>
   <div class="main-tasks-index">
     <div class="container">
@@ -16,9 +16,10 @@
       <% @tasks.each do |task| %>
         <% if task.project != "completed" %>
           <div class="tasks-index-item">
-            <i class="far fa-circle circle" id="circle"></i>
-            <input type="submit" value="&#xf00c;" class="fas" class="check">
-            <i class="fas fa-check check" id="check"></i>
+            <%= link_to("#{task.id}/completed", {method: "post"}) do %>
+              <i class="far fa-circle circle" style="color: rgb(222, 222, 222)"></i>
+              <i class="fas fa-check check" style="color: rgb(222, 222, 222)"></i>
+            <% end %>
             <nobr id="content"><%= task.content %></nobr>
             <div id="task-show">
               <div id="hidden_show1">
@@ -29,6 +30,7 @@
                   <button id="edit-btn" class="edit-btn"><i class="fas fa-edit"></i> 編集</button>
                   <%= form_tag("/tasks/#{task.id}/edit") do %>
                     <input name="content" value="<%= task.content %>" id="edit-input" autocomplete="off" required maxlength='100' class="edit-input">
+                    <input name="memo" value="<%= task.memo %>" id="edit-input" autocomplete="off" required maxlength='200' class="edit-input">
                     <input type="submit" value="完了" class="edit-complete">
                   <% end %>
                 </li>
@@ -37,6 +39,9 @@
           </div>
         <% end %>
       <% end %>
+      <div class="tasks-new-item">
+
+      </div>
 
       <div class="manu">
         <div class="">

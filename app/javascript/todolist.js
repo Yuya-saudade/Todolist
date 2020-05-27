@@ -1,4 +1,14 @@
 $(function($) {
+  $("#login").click(function() {
+    $("#login-wrapper").fadeIn();
+    $("#new-wrapper").hide();
+  });
+  $(".signup").click(function () {
+    $("#new-wrapper").fadeIn();
+    $("#login-wrapper").hide();
+  });
+
+
   $("nobr").click(function() {
     $(this).next("div").slideToggle(200);
   });
@@ -16,15 +26,15 @@ $(function($) {
   $(".circle").hover(
     function() {
       $(this).hide();
-      $(this).next("input").show();
+      $(this).next("i").show();
     },
     function() {
       $(this).show();
-      $(this).next("input").hide();
+      $(this).next("i").hide();
     }
   );
 
   $(".check").click(function() {
-    $(this).parents(".tasks-index-item").fadeOut();
+    $(this).parents(".tasks-index-item").slideUp(200);
   });
 })(jquery);
