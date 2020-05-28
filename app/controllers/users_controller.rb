@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user, {only: [:index, :show, :edit, :update]}
+  before_action :authenticate_user, {only: [:index, :show, :edit, :update, :logout]}
+  before_action :forbid_login_user, {only: [:signup, :login]}
 
   def signup
     @user = User.new(name: params[:name], email: params[:email], password: params[:password])

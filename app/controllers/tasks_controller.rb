@@ -1,13 +1,13 @@
 class TasksController < ApplicationController
   before_action :authenticate_user
-  
+
   def index
     @tasks = Task.all
   end
 
   def create
     @user = User.find_by(id: params[:id])
-    @task = Task.create(content: params[:content],memo: params[:memo],project: "inbox")
+    @task = Task.create(content: params[:content],memo: params[:memo],project: "inbox",user_id: @current_user.id)
     if @task.save
       flash[:notice] = "タスクを追加しました"
       redirect_to("/tasks/index")
