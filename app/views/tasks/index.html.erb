@@ -5,8 +5,12 @@
 
 <main>
   <div class="header">
+    <% current_user = User.find_by(id: session[:user_id]) %>
     <i class="fas fa-bars bar-in-header"></i>
-    <i class="fas fa-user-edit" id="user-edit"></i>
+    <li id="user-name"><%= current_user.name %></li>
+    <div class="header-user-manu">
+
+    </div>
   </div>
   <div class="main-tasks-index">
     <div class="container">

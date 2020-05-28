@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get "users/:name/edit" => "users#edit"
+  post "logout" => "users#logout"
+  post "login" => "users#login"
+  get "users/:name/edit" => "user#edit"
   post "users/signup" => "users#signup"
   post "tasks/:id/completed" => "tasks#completed"
   get "tasks/index" => "tasks#index"

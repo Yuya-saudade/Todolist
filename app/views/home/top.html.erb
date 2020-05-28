@@ -28,17 +28,19 @@
         </div>
       </div>
     <% end %>
-    <div id="login-wrapper">
-      <div class="modal">
-        <i class="fas fa-times close-modal fa-lg"></i>
-        <p class="modal-head">ログイン</p>
-        <p>メールアドレス</p>
-        <input type="email" name="email" required class="modal-input">
-        <p>パスワード</p>
-        <input type="password" name="password" required minlength="10" maxlength="30" class="modal-input">
-        <p><input type="submit" value="ログイン" class="modal-submit"></p>
+    <%= form_tag("/login") do %>
+      <div id="login-wrapper">
+        <div class="modal">
+          <i class="fas fa-times close-modal fa-lg"></i>
+          <p class="modal-head">ログイン</p>
+          <p>メールアドレス</p>
+          <input type="email" name="email" required class="modal-input">
+          <p>パスワード</p>
+          <input type="password" name="password" required minlength="10" maxlength="30" class="modal-input">
+          <p><input type="submit" value="ログイン" class="modal-submit"></p>
+        </div>
       </div>
-    </div>
+    <% end %>
     <main>
       <h1 id="top">身の回りのタスクを</h1>
       <h1>Todolistを使って</h1>

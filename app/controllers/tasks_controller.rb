@@ -1,23 +1,33 @@
 class TasksController < ApplicationController
   def index
-    @user = User.find_by(id: params[:id])
     @tasks = Task.all
-    @task = Task.find_by(id: params[:id])
   end
 
   def create
     @user = User.find_by(id: params[:id])
     @task = Task.create(content: params[:content],memo: params[:memo],project: "inbox")
-    flash[:notice] = "タスクを追加しました"
-    redirect_to("/tasks/index")
+    if @task.save
+      flash[:notice] = "タスクを追加しました"
+      redirect_to("/tasks/index")
+    else
+      @task.errors_full_messages.each do|message|
+        flash[:notice] = message
+      end
+    end
   end
 
   def edit
     @task = Task.find_by(id: params[:id])
     @task.content = params[:content]
     @task.memo = params[:memo]
-    @task.save
-    redirect_to("/tasks/index")
+    if @task.save
+      flash[:notice] = "変更を保存しました"
+    else
+      @task.errors_full_messages.each do|message|
+        flash[:notice] = message
+      end
+      redirect_to("/tasks/index")
+    end
   end
 
   def completed
