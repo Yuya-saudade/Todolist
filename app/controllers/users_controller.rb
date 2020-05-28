@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user, {only: [:index, :show, :edit, :update]}
+
   def signup
     @user = User.new(name: params[:name], email: params[:email], password: params[:password])
     if @user.save
@@ -33,5 +35,13 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
     redirect_to("/")
+  end
+
+  def edit
+
+  end
+
+  def update
+
   end
 end

@@ -5,12 +5,14 @@
 
 <main>
   <div class="header">
-    <% current_user = User.find_by(id: session[:user_id]) %>
     <i class="fas fa-bars bar-in-header"></i>
-    <li id="user-name"><%= current_user.name %></li>
-    <div class="header-user-manu">
-
-    </div>
+    <li id="user-name"><i class="fas fa-caret-down"></i><%= @current_user.name %></li>
+  </div>
+  <div class="header-user-manu">
+    <a><i class="fas fa-user-edit"></i>ユーザー編集</a>
+    <%= link_to("/logout", {method: :post}) do %>
+      <p><i class="fas fa-sign-out-alt"></i>ログアウト</p>
+    <% end %>
   </div>
   <div class="main-tasks-index">
     <div class="container">

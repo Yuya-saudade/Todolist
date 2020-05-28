@@ -14,8 +14,13 @@
     line-height: 50px;
     padding: 0 10px 0 40px;
     text-decoration: none;
+    cursor: pointer;
+    webkit-transition: all 0.3s ease;
+    moz-transition: all 0.3s ease;
+    o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
     &:hover {
-      cursor: pointer;
+      color: rgb(148, 148, 148);
     }
   }
 
@@ -29,6 +34,48 @@
   }
 }
 
+#user-name {
+  float: right;
+  user-select: none;
+  cursor: pointer;
+  font-size: 25px;
+  margin-right: 30px;
+  line-height: 50px;
+  webkit-transition: all 0.3s ease;
+  moz-transition: all 0.3s ease;
+  o-transition: all 0.3s ease;
+  transition: all  0.3s ease;
+  &:hover {
+    color: rgb(148, 148, 148);
+    .fa-caret-down {
+      color: rgb(148, 148, 148);
+    }
+  }
+}
+
+.header-user-manu {
+  background-color: rgb(97, 97, 97);
+  width: 200px;
+  color: #fff;
+  right: 0;
+  top: 0;
+  margin-top: 50px;
+  margin-right: 30px;
+  font-size: 15px;
+  text-decoration: none;
+  line-height: 50px;
+  z-index: 99;
+  display: block;
+  text-align: center;
+  float: right;
+  display: none;
+  a {
+    cursor: pointer;
+    user-select: none;
+    padding-top: 10px;
+  }
+}
+
 
 /* tasks/index ================================ */
 .index-head {
@@ -37,6 +84,7 @@
   line-height: 7vh;
   color: #fff;
   margin-top: 50px;
+  top: 0;
   width: 100%;
   padding: 20px 0 10px 0;
   display: inline-block;

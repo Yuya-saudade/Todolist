@@ -49,4 +49,7 @@ $(function($) {
     },5000);
   });
 
+  $("#user-name").click(function () {
+    $(".header-user-manu").slideToggle(300);
+  });
 })(jquery);
