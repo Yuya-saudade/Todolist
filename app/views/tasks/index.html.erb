@@ -21,14 +21,14 @@
       </div>
 
       <% @tasks.each do |task| %>
-        <% if task.project != "completed" %>
+        <% if task.project != "completed" && task.user_id == @current_user.id %>
           <div class="tasks-index-item">
             <%= link_to("#{task.id}/completed", {method: "post"}) do %>
               <i class="far fa-circle circle" style="color: rgb(222, 222, 222)"></i>
               <i class="fas fa-check check" style="color: rgb(222, 222, 222)"></i>
             <% end %>
             <nobr id="content"><%= task.content %></nobr>
-            <div id="task-show">
+            <div id="task-show" clsas="task-show">
               <div id="hidden_show1">
                 <p>追加日：<%= task.created_at.to_s(:datetime_jp) %></p>
                 <p>最終更新日：<%= task.updated_at.to_s(:datetime_jp) %></p>

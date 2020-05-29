@@ -43,13 +43,22 @@ $(function($) {
     $(this).parents(".tasks-index-item").slideUp(200);
   });
 
-  $(document).ready(function () {
+  $(document).ready(function() {
+    $(".flash").animate({
+      'margin-left': '20px'
+    }, 1500);
     setTimeout(function () {
       $(".flash").fadeOut();
     },5000);
   });
 
-  $("#user-name").click(function () {
+  $("#user-name").click(function() {
     $(".header-user-manu").slideToggle(300);
+  });
+
+  $(".edit-complete").click(function() {
+    $(".edit-input").hide();
+    $(this).hide();
+    $(".task-show").hide();
   });
 })(jquery);

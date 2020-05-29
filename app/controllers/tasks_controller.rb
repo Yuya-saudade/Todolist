@@ -1,18 +1,18 @@
 class TasksController < ApplicationController
   before_action :authenticate_user
+  before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
 
   def index
     @tasks = Task.all
   end
 
   def create
-    @user = User.find_by(id: params[:id])
     @task = Task.create(content: params[:content],memo: params[:memo],project: "inbox",user_id: @current_user.id)
     if @task.save
       flash[:notice] = "タスクを追加しました"
       redirect_to("/tasks/index")
     else
-      @task.errors_full_messages.each do|message|
+      @task.errors_full_messages.each do |message|
         flash[:notice] = message
       end
     end
@@ -22,10 +22,12 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: params[:id])
     @task.content = params[:content]
     @task.memo = params[:memo]
+    @task.save
     if @task.save
       flash[:notice] = "変更を保存しました"
+      redirect_to("/tasks/index")
     else
-      @task.errors_full_messages.each do|message|
+      @task.errors_full_messages.each do |message|
         flash[:notice] = message
       end
       redirect_to("/tasks/index")

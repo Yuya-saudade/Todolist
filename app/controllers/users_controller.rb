@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to("/tasks/index")
     else
-      @user.errors_full_messages.each do|message|
+      @user.errors.full_messages.each do |message|
         flash[:notice] = message
       end
       redirect_to("/")
@@ -21,8 +21,8 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.find_by(email: params[:email], password: params[:password])
-    if @user
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
       redirect_to("/tasks/index")
