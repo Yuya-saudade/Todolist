@@ -48,7 +48,13 @@ $(function($) {
       'margin-left': '20px'
     }, 1500);
     setTimeout(function () {
-      $(".flash").fadeOut();
+      $(".flash").animate({
+        'margin-left': '-500px'
+      }, {
+        complete: function () {
+          $(".flash").fadeOut();
+        }
+      })
     },5000);
   });
 
@@ -60,5 +66,8 @@ $(function($) {
     $(".edit-input").hide();
     $(this).hide();
     $(".task-show").hide();
+    $("html").click(function () {
+      $(this).slideDown();
+    });
   });
 })(jquery);

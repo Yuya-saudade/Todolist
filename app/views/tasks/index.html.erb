@@ -19,7 +19,6 @@
       <div class="index-head" >
         未完了のすべてのタスク
       </div>
-
       <% @tasks.each do |task| %>
         <% if task.project != "completed" && task.user_id == @current_user.id %>
           <div class="tasks-index-item">
@@ -46,7 +45,6 @@
           </div>
         <% end %>
       <% end %>
-
       <div id="task-new">
         <label for="label4" id="add-task"><i class="fas fa-plus fa-fw plus-in-index"></i> タスクを追加</label>
         <input type="checkbox" id="label4" class="checkbox-2">

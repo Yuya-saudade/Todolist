@@ -5,7 +5,7 @@
 
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
-require ('todolist.js').start();
+require ('todolist.js').ready();
 require("channels")
 require('jquery')
 require("todolist.js")
