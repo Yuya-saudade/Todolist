@@ -38,7 +38,7 @@ a {
   }
 }
 
-//ここからMy Cord
+//ここまで
 header {
   background-color: rgb(40, 40, 40);
   width: 100vw;
@@ -85,7 +85,7 @@ header {
   }
 }
 
-#new-wrapper, #login-wrapper {
+#new-wrapper, #login-wrapper, #user-edit-wrapper {
   position: fixed;
   min-height: 100vh;
   top: 0;
@@ -213,6 +213,7 @@ footer{
   background-color: rgb(224, 0, 0);
   position: fixed;
   margin-bottom: 25px;
+  margin-left: -500px;
   bottom: 0;
   z-index: 99;
 }

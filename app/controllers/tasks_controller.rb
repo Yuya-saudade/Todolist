@@ -4,6 +4,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
+    @user = User.find_by(id: session[:user_id])
   end
 
   def create

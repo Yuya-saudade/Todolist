@@ -39,10 +39,21 @@ class UsersController < ApplicationController
   end
 
   def edit
-
+    @user = User.find_by(id: session[:user_id])
   end
 
   def update
-
+    @user = User.find_by(id: session[:user_id])
+    @user.name = params[:name]
+    @user.email = params[:email]
+    if @user.save
+      flash[:notice] = "変更内容を保存しました"
+      redirect_to("/tasks/index")
+    else
+      render("/tasks/index")
+      @user.errors.full_messages.each do |message|
+        flash[:notice] = message
+      end
+    end
   end
 end

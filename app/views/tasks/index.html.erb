@@ -3,13 +3,28 @@
   <title>タスク一覧 || Todolist</title>
 </head>
 
-<main>
+<body>
   <div class="header">
-    <i class="fas fa-bars bar-in-header"></i>
+    <i class="fas fa-bars bar-in-header fa-2x"></i>
     <li id="user-name"><i class="fas fa-caret-down"></i><%= @current_user.name %></li>
   </div>
+  <%= form_tag("/users/:id/update") do %>
+    <div id="user-edit-wrapper">
+      <div class="modal">
+        <i class="fas fa-times close-modal fa-lg"></i>
+        <p class="modal-head">ユーザー編集</p>
+        <p>ユーザー名</p>
+        <input type="text" name="name" required class="modal-input" value="<%= @user.name %>" autocomplete="off">
+        <p>メールアドレス</p>
+        <input type="email" name="email" required class="modal-input" value="<%= @user.email %>" autocomplete="off">
+        <p>パスワード</p>
+        <input type="password" name="password" required minlength="10" maxlength="30" class="modal-input" value="<%= @user.password %>">
+        <p><input type="submit" value="保存" class="modal-submit"></p>
+      </div>
+    </div>
+  <% end %>
   <div class="header-user-manu">
-    <a><i class="fas fa-user-edit"></i>ユーザー編集</a>
+    <a id="user-edit"><i class="fas fa-user-edit"></i>ユーザー編集</a>
     <%= link_to("/logout", {method: :post}) do %>
       <p><i class="fas fa-sign-out-alt"></i>ログアウト</p>
     <% end %>
@@ -57,4 +72,4 @@
         </div>
     </div>
   </div>
-</main>
+</body>
