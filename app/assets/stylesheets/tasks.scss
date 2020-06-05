@@ -38,7 +38,7 @@
   float: right;
   user-select: none;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 20px;
   margin-right: 30px;
   line-height: 50px;
   webkit-transition: all 0.3s ease;
@@ -47,9 +47,6 @@
   transition: all  0.3s ease;
   &:hover {
     color: rgb(148, 148, 148);
-    .fa-caret-down {
-      color: rgb(148, 148, 148);
-    }
   }
 }
 
@@ -75,7 +72,22 @@
   }
 }
 
-
+// left-menu ==================================
+#left-menu {
+  left: 0;
+  margin-top: 51px;
+  width: 150px;
+  padding: 10px 0 5px 30px;
+  font-size: 20px;
+  min-height: 90vh;
+  position: absolute;
+  z-index: 1000;
+  background-color: rgb(50, 50, 50);
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
 /* tasks/index ================================ */
 .index-head {
   font-size: 25px;
@@ -83,7 +95,6 @@
   line-height: 7vh;
   color: #fff;
   margin-top: 50px;
-  top: 0;
   width: 100%;
   padding: 20px 0 10px 0;
   display: inline-block;
@@ -140,9 +151,25 @@
     border: 1.5px solid rgb(167, 163, 163);
     width: 40vw;
     height: 30px;
+    margin-bottom: 5px;
     font-size: 16px;
     padding-left: 10px;
     outline: 0;
+  }
+
+  .project-input {
+    background-color: rgb(29, 29, 29);
+    color: #fff;
+    border: 1.5px solid rgb(167, 163, 163);
+    width: 40vw;
+    height: 30px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    padding-left: 10px;
+    outline: 0;
+    &::selection {
+      background-color: rgb(184, 184, 184);
+    }
   }
 
   .edit-complete {

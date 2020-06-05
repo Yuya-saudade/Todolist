@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
   before_action :authenticate_user
-  before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
 
   def index
     @tasks = Task.all
@@ -23,6 +22,7 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: params[:id])
     @task.content = params[:content]
     @task.memo = params[:memo]
+    @task.project = params[:project]
     @task.save
     if @task.save
       flash[:notice] = "変更を保存しました"

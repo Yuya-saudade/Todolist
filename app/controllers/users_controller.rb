@@ -3,7 +3,10 @@ class UsersController < ApplicationController
   before_action :forbid_login_user, {only: [:signup, :login]}
 
   def signup
-    @user = User.new(name: params[:name], email: params[:email], password: params[:password])
+    @user = User.new(name: params[:name],
+                     email: params[:email],
+                     password: params[:password],
+                   )
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"

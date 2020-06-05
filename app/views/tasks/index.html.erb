@@ -5,71 +5,98 @@
 
 <body>
   <div class="header">
-    <i class="fas fa-bars bar-in-header fa-2x"></i>
-    <li id="user-name"><i class="fas fa-caret-down"></i><%= @current_user.name %></li>
+    <i class="fas fa-bars bar-in-header fa-2x" class="user-name"></i>
+    <li id="user-name">
+      <i class="fas fa-caret-down"> <%= @current_user.name %></i>
+    </li>
   </div>
-  <%= form_tag("/users/:id/update") do %>
-    <div id="user-edit-wrapper">
-      <div class="modal">
-        <i class="fas fa-times close-modal fa-lg"></i>
-        <p class="modal-head">ユーザー編集</p>
-        <p>ユーザー名</p>
-        <input type="text" name="name" required class="modal-input" value="<%= @user.name %>" autocomplete="off">
-        <p>メールアドレス</p>
-        <input type="email" name="email" required class="modal-input" value="<%= @user.email %>" autocomplete="off">
-        <p>パスワード</p>
-        <input type="password" name="password" required minlength="10" maxlength="30" class="modal-input" value="<%= @user.password %>">
-        <p><input type="submit" value="保存" class="modal-submit"></p>
+  <div id="left-menu">
+    <ul>
+      <li>
+        <%= link_to("#") do %>
+          <i class="fas fa-inbox fa-fw"></i>
+          Inbox
+        <% end %>
+      </li>
+      <li>
+        <%= link_to("#") do %>
+          <i class="fas fa-calendar-day fa-fw"></i>
+          Today
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <div class="index-container">
+    <%= form_tag("/users/:id/update") do %>
+      <div id="user-edit-wrapper">
+        <div class="modal">
+          <i class="fas fa-times close-modal fa-lg"></i>
+          <p class="modal-head">ユーザー編集</p>
+          <p>ユーザー名</p>
+          <input type="text" name="name" required class="modal-input" value="<%= @user.name %>" autocomplete="off">
+          <p>メールアドレス</p>
+          <input type="email" name="email" required class="modal-input" value="<%= @user.email %>" autocomplete="off">
+          <p>パスワード</p>
+          <input type="password" name="password" required minlength="10" maxlength="30" class="modal-input" value="<%= @user.password %>">
+          <p><input type="submit" value="保存" class="modal-submit"></p>
+        </div>
       </div>
-    </div>
-  <% end %>
-  <div class="header-user-manu">
-    <a id="user-edit"><i class="fas fa-user-edit"></i>ユーザー編集</a>
-    <%= link_to("/logout", {method: :post}) do %>
-      <p><i class="fas fa-sign-out-alt"></i>ログアウト</p>
     <% end %>
-  </div>
-  <div class="main-tasks-index">
-    <div class="container">
-      <div class="index-head" >
-        未完了のすべてのタスク
-      </div>
-      <% @tasks.each do |task| %>
-        <% if task.project != "completed" && task.user_id == @current_user.id %>
-          <div class="tasks-index-item">
-            <%= link_to("#{task.id}/completed", {method: "post"}) do %>
-              <i class="far fa-circle circle" style="color: rgb(222, 222, 222)"></i>
-              <i class="fas fa-check check" style="color: rgb(222, 222, 222)"></i>
-            <% end %>
-            <nobr id="content"><%= task.content %></nobr>
-            <div id="task-show" clsas="task-show">
-              <div id="hidden_show1">
-                <p>追加日：<%= task.created_at.to_s(:datetime_jp) %></p>
-                <p>最終更新日：<%= task.updated_at.to_s(:datetime_jp) %></p>
-                <p>メモ：<%= task.memo %></p>
-                <li id="editer">
-                  <button id="edit-btn" class="edit-btn"><i class="fas fa-edit"></i> 編集</button>
-                  <%= form_tag("/tasks/#{task.id}/edit") do %>
-                    <input name="content" value="<%= task.content %>" id="edit-input" autocomplete="off" required maxlength='100' class="edit-input">
-                    <input name="memo" value="<%= task.memo %>" id="edit-input" autocomplete="off" required maxlength='200' class="edit-input">
-                    <input type="submit" value="完了" class="edit-complete">
-                  <% end %>
-                </li>
+    <div class="header-user-manu">
+      <a id="user-edit"><i class="fas fa-user-edit"></i>ユーザー編集</a>
+      <%= link_to("/logout", {method: :post}) do %>
+        <p><i class="fas fa-sign-out-alt"></i>ログアウト</p>
+      <% end %>
+    </div>
+    <div class="main-tasks-index">
+      <div class="container">
+        <div class="index-head" >
+          未完了のすべてのタスク
+        </div>
+        <% @tasks.each do |task| %>
+          <% if task.project != "completed" && task.user_id == @current_user.id %>
+            <div class="tasks-index-item">
+              <%= link_to("#{task.id}/completed", {method: "post"}) do %>
+                <i class="far fa-circle circle" style="color: rgb(222, 222, 222)"></i>
+                <i class="fas fa-check check" style="color: rgb(222, 222, 222)"></i>
+              <% end %>
+              <nobr id="content"><%= task.content %></nobr>
+              <div id="task-show" clsas="task-show">
+                <div id="hidden_show1">
+                  <p>追加日：<%= task.created_at.to_s(:datetime_jp) %>
+                          最終更新日：<%= task.updated_at.to_s(:datetime_jp) %>
+                  </p>
+                  <p>メモ：<%= task.memo %></p>
+                  <p>プロジェクト：<%= task.project %></p>
+                  <li id="editer">
+                    <button id="edit-btn" class="edit-btn"><i class="fas fa-edit"></i> 編集</button>
+                    <%= form_tag("/tasks/#{task.id}/edit") do %>
+                      <input name="content" value="<%= task.content %>" id="edit-input" autocomplete="off" required maxlength='100' class="edit-input">
+                      <input name="memo" value="<%= task.memo %>" id="edit-input" autocomplete="off" required maxlength='200' class="edit-input">
+                      <p>
+                        <select name="project" class="project-input">
+                          <option value="Inbox">Inbox</option>
+                        </select>
+                      </p>
+                      <p><input type="submit" value="完了" class="edit-complete"></p>
+                    <% end %>
+                  </li>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
-      <% end %>
-      <div id="task-new">
-        <label for="label4" id="add-task"><i class="fas fa-plus fa-fw plus-in-index"></i> タスクを追加</label>
-        <input type="checkbox" id="label4" class="checkbox-2">
-        <div class="hidden_show2">
-          <%= form_tag("/tasks/create") do %>
-            <input required maxlength='100' name="content" class="task-input" placeholder="タスクを入力 例：どら焼きを買う"  autocomplete="off">
-            <p><input maxlength="200" name="memo" class="task-input" id="memo-input" placeholder="メモを入力 例：クーポンあり" autocomplete="off"></p>
-            <p><input type="submit" value="追加" id="add-btn"></p>
           <% end %>
-        </div>
+        <% end %>
+        <div id="task-new">
+          <label for="label4" id="add-task"><i class="fas fa-plus fa-fw plus-in-index"></i> タスクを追加</label>
+          <input type="checkbox" id="label4" class="checkbox-2">
+          <div class="hidden_show2">
+            <%= form_tag("/tasks/create") do %>
+              <input required maxlength='100' name="content" class="task-input" placeholder="タスクを入力 例：どら焼きを買う"  autocomplete="off">
+              <p><input maxlength="200" name="memo" class="task-input" id="memo-input" placeholder="メモを入力 例：クーポンあり" autocomplete="off"></p>
+              <p><input type="submit" value="追加" id="add-btn"></p>
+            <% end %>
+          </div>
+      </div>
     </div>
   </div>
 </body>

@@ -21,10 +21,13 @@ $(function($) {
 
   $(".edit-input").hide();
   $(".edit-complete").hide();
+  $(".project-input").hide();
+
 
   $("button").click(function() {
-    $(".edit-input").slideToggle(50);
-    $(".edit-complete").slideToggle(50);
+    $(".edit-input").slideToggle(80);
+    $(".edit-complete").slideToggle(80);
+    $(".project-input").slideToggle(80);
   });
 
   $(".check").hide();
@@ -58,7 +61,7 @@ $(function($) {
         complete: function () {
           $(".flash").fadeOut();
         }
-      })
+      });
     },5000);
   });
   $(".header-user-manu").hide();
@@ -70,5 +73,13 @@ $(function($) {
     $(".edit-input").hide();
     $(this).hide();
     $(".task-show").hide();
+  });
+
+  $("#left-menu").hide();
+  $(".fa-bars").click(function () {
+    $("#left-menu").animate({
+      "width": "toggle"
+    },{duration: 'fast', easing: 'swing'}
+    );
   });
 })(jquery);
