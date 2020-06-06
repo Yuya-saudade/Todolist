@@ -6,10 +6,12 @@
 <body>
   <div class="header">
     <i class="fas fa-bars bar-in-header fa-2x" class="user-name"></i>
+    <a href="#task-new"><i class="fas fa-plus fa-2x" id="plus-in-header"></i></a>
     <li id="user-name">
       <i class="fas fa-caret-down"> <%= @current_user.name %></i>
     </li>
   </div>
+
   <div id="left-menu">
     <ul>
       <li>
@@ -87,9 +89,8 @@
           <% end %>
         <% end %>
         <div id="task-new">
-          <label for="label4" id="add-task"><i class="fas fa-plus fa-fw plus-in-index"></i> タスクを追加</label>
-          <input type="checkbox" id="label4" class="checkbox-2">
-          <div class="hidden_show2">
+          <label id="add-task"<i class="fas fa-plus fa-fw plus-in-index"></i> タスクを追加</label>
+          <div id="hidden_show2">
             <%= form_tag("/tasks/create") do %>
               <input required maxlength='100' name="content" class="task-input" placeholder="タスクを入力 例：どら焼きを買う"  autocomplete="off">
               <p><input maxlength="200" name="memo" class="task-input" id="memo-input" placeholder="メモを入力 例：クーポンあり" autocomplete="off"></p>
