@@ -9,6 +9,7 @@
   position: fixed;
   top: 0;
   z-index: 10;
+  height: 50px;
   i {
     color: rgb(222, 222, 222);
     line-height: 50px;
@@ -75,17 +76,19 @@
 // left-menu ==================================
 #left-menu {
   left: 0;
-  margin-top: 51px;
-  width: 150px;
-  padding: 10px 0 5px 30px;
+  margin-top: 50px;
+  width: 200px;
+  padding: 20px 0 5px 30px;
+  height: calc(100% - 50px);
   font-size: 20px;
-  min-height: 90vh;
-  position: absolute;
+  position: fixed;
+  white-space: nowrap;
   z-index: 1000;
   background-color: rgb(50, 50, 50);
   a {
     text-decoration: none;
     color: #fff;
+    user-select: none;
   }
 }
 /* tasks/index ================================ */

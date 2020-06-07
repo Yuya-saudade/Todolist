@@ -50,6 +50,14 @@ $(function($) {
     $(this).parents(".tasks-index-item").slideUp(200);
   });
 
+  $("#hidden_show2").hide();
+  $("#add-task").click(function() {
+    $("#hidden_show2").slideToggle(200);
+  });
+  $("#plus-in-header").click(function() {
+    $("#hidden_show2").slideToggle(200);
+  });
+
   $(document).ready(function() {
     $(".flash").animate({
       'margin-left': '20px'
@@ -79,7 +87,6 @@ $(function($) {
   $(".fa-bars").click(function () {
     $("#left-menu").animate({
       "width": "toggle"
-    },{duration: 'fast', easing: 'swing'}
-    );
+    }, {duration: 'fast', easing: 'swing'});
   });
 })(jquery);
